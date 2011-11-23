@@ -1,64 +1,57 @@
-// this sets the background color of the master UIView (when there are no windows/tab groups on it)
-Titanium.UI.setBackgroundColor('#000');
+/*Ti.UI.backgroundColor = '#ddd';
 
-// create tab group
-var tabGroup = Titanium.UI.createTabGroup();
+var forms = require('forms');
+var fields = [
+	{ title:'Name', type:'text', id:'name' },
+	{ title:'Email', type:'email', id:'email' },
+	{ title:'Address', type:'text', id:'address' },
+	{ title:'City', type:'text', id:'city' },
+	{ title:'State', type:'picker', id:'state', data: [
+		'Alabama', 'Alaska', 'Arizona',	'Arkansas',
+		'California', 'Colorado', 'Connecticut', 'Delaware',
+		'Florida', 'Georgia', 'Hawaii',	'Idaho',
+		'Illinois',	'Indiana', 'Iowa', 'Kansas',
+		'Kentucky',	'Louisiana', 'Maine', 'Maryland',
+		'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi',
+		'Missouri',	'Montana', 'Nebraska', 'Nevada',
+		'New Hampshire', 'New Jersey', 'New Mexico', 'New York',
+		'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma',
+		'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina',
+		'South Dakota', 'Tennessee', 'Texas', 'Utah',
+		'Vermont', 'Virginia', 'Washington', 'West Virginia' 
+	] },
+	{ title:'Zip Code', type:'number', id:'zip' },
+	{ title:'Phone', type:'phone', id:'phone' },
+	{ title:'Password', type:'password', id:'password' },
+	{ title:'Birthday', type:'date', id:'birthday' },
+	{ title:'Submit', type:'submit', id:'registerUser' }
+];
 
-
-//
-// create base UI tab and root window
-//
-var win1 = Titanium.UI.createWindow({  
-    title:'Tab 1',
-    backgroundColor:'#fff'
+var win = Ti.UI.createWindow();
+var form = forms.createForm({
+	style: forms.STYLE_LABEL,
+	fields: fields
 });
-var tab1 = Titanium.UI.createTab({  
-    icon:'KS_nav_views.png',
-    title:'Main Tab',
-    window:win1
+form.addEventListener('registerUser', function(e) {
+	Ti.API.debug(e);
 });
+win.add(form);
 
-var label1 = Titanium.UI.createLabel({
-	color:'#999',
-	text:'Hello guy!',
-	font:{fontSize:20,fontFamily:'Helvetica Neue'},
-	textAlign:'center',
-	width:'auto'
-});
+win.open();*/
+//Tab groud
+var tabGroup = Ti.UI.createTabGroup();
 
-win1.add(label1);
-
-//
-// create controls tab and root window
-//
-var win2 = Titanium.UI.createWindow({  
-    title:'Tab 2',
-    backgroundColor:'#fff'
-});
-var tab2 = Titanium.UI.createTab({  
-    icon:'KS_nav_ui.png',
-    title:'Tab 2',
-    window:win2
-});
-
-var label2 = Titanium.UI.createLabel({
-	color:'#999',
-	text:'I am Window 2',
-	font:{fontSize:20,fontFamily:'Helvetica Neue'},
-	textAlign:'center',
-	width:'auto'
+var main = Ti.UI.createWindow({
+	title: 'Product Categories',
+	url: 'product_category.js'
 });
 
-win2.add(label2);
+var tab = Ti.UI.createTab({
+	icon: 'KS_nav_ui.png',
+	title: 'Products',
+	window: main
+});
 
+tabGroup.addTab(tab);
 
-
-//
-//  add tabs
-//
-tabGroup.addTab(tab1);  
-tabGroup.addTab(tab2);  
-
-
-// open tab group
-tabGroup.open();
+tabGroup.open()
