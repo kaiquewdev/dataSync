@@ -5,11 +5,11 @@ Logfile initialized
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.009218 seconds on emulator to get ready
+[DEBUG] waited 0.005890 seconds on emulator to get ready
 [DEBUG] br.com.visie.dataSync installed? True
 [WARN] Fastdev enabled, but server isn't running, deploying normally
 [INFO] Copying project resources..
-[TRACE] COPYING MODIFIED FILE: /home/kaiquesilva/Documents/Projects/dataSync/Resources/main.js => /home/kaiquesilva/Documents/Projects/dataSync/build/android/bin/assets/Resources/main.js
+[TRACE] COPYING MODIFIED FILE: /home/kaiquesilva/Documents/Projects/dataSync/Resources/data/insert.js => /home/kaiquesilva/Documents/Projects/dataSync/build/android/bin/assets/Resources/data/insert.js
 [TRACE] Generating Java Classes
 [DEBUG] Processing Android resource drawables
 [DEBUG] copying app icon: /home/kaiquesilva/Documents/Projects/dataSync/build/android/bin/assets/Resources/appicon.png
@@ -46,6 +46,7 @@ Logfile initialized
 [DEBUG] Android classes.dex built
 [DEBUG] creating unsigned apk: /home/kaiquesilva/Documents/Projects/dataSync/build/android/bin/app-unsigned.apk
 [DEBUG] from resource zip => assets/Resources/data/insert.js
+[DEBUG] from resource zip => assets/Resources/data/profile.js
 [DEBUG] from resource zip => assets/Resources/data/remove.js
 [DEBUG] from resource zip => assets/Resources/data/search.js
 [DEBUG] from resource zip => assets/Resources/data/view.js
@@ -94,7 +95,7 @@ Logfile initialized
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.005407 seconds on emulator to get ready
+[DEBUG] waited 0.007144 seconds on emulator to get ready
 [INFO] Installing application on device
 [INFO] Launching application ... dataSync
 [TRACE] Launch output: Starting: Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=br.com.visie.dataSync/.DatasyncActivity }

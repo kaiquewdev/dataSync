@@ -19,10 +19,10 @@ tableview.addEventListener('click', function (e) {
 		});
 		
 		var functionName = e.rowData.title;
-		
 		win.functionName = functionName;
 		Ti.UI.currentTab.open(win);
 	}
 });
 
+currentWin.backgroundColor = '#2b2b2b';
 currentWin.add(tableview);

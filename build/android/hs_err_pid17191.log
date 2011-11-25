@@ -1,0 +1,442 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0xb47dac7b, pid=17191, tid=3077938032
+#
+# JRE version: 6.0_22-b22
+# Java VM: OpenJDK Server VM (20.0-b11 mixed mode linux-x86 )
+# Derivative: IcedTea6 1.10.4
+# Distribution: Fedora release 15 (Lovelock), package fedora-60.1.10.4.fc15-i386
+# Problematic frame:
+# J  com.android.dx.cf.code.Simulator$SimVisitor.visitLocal(IIIILcom/android/dx/rop/type/Type;I)V
+#
+# If you would like to submit a bug report, please include
+# instructions how to reproduce the bug and visit:
+#   http://icedtea.classpath.org/bugzilla
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0xb7605800):  JavaThread "main" [_thread_in_Java, id=17204, stack(0xb7709000,0xb775a000)]
+
+siginfo:si_signo=SIGSEGV: si_errno=0, si_code=128 (), si_addr=0x00000000
+
+Registers:
+EAX=0xa0a1e378, EBX=0x00000155, ECX=0xa0ac4b30, EDX=0xa0aced50
+ESP=0xb7758af0, EBP=0x00000084, ESI=0x6ca65df4, EDI=0x00000001
+EIP=0xb47dac7b, EFLAGS=0x00010246, CR2=0xb7771000
+
+Top of Stack: (sp=0xb7758af0)
+0xb7758af0:   00000155 00000084 a0a10958 a0a09778
+0xb7758b00:   74db95f8 a0acee00 00000000 a0ac4ca0
+0xb7758b10:   00000084 a0ac4ba0 0000000b b4602ee1
+0xb7758b20:   00000158 0000000b b7758b90 b46033bd
+0xb7758b30:   00000155 a0ac4b30 00000002 74db95f8
+0xb7758b40:   00000001 6c7d5d4a b7758b6c 6c7d6ed8
+0xb7758b50:   b46033bd 00000001 74db95f8 00000002
+0xb7758b60:   00000003 00000155 00000084 a0ac4ca0 
+
+Instructions: (pc=0xb47dac7b)
+0xb47dac5b:   8b 4d 04 81 f9 28 cb 83 6c 0f 85 93 04 00 00 8b
+0xb47dac6b:   cd 8b 5c 24 40 89 1c 24 8b 6c 24 20 89 6c 24 04
+0xb47dac7b:   e8 0c fc 08 00 83 c4 38 5d 85 05 00 10 77 b7 c3
+0xb47dac8b:   89 54 24 0c 89 6c 24 08 83 f8 36 0f 8e 06 03 00 
+
+Register to memory mapping:
+
+EAX=0xa0a1e378 is an oop
+com.android.dx.rop.cst.CstInteger 
+ - klass: 'com/android/dx/rop/cst/CstInteger'
+EBX=0x00000155 is an unknown value
+ECX=0xa0ac4b30 is an oop
+com.android.dx.cf.code.RopperMachine 
+ - klass: 'com/android/dx/cf/code/RopperMachine'
+EDX=0xa0aced50 is an oop
+com.android.dx.cf.code.Frame 
+ - klass: 'com/android/dx/cf/code/Frame'
+ESP=0xb7758af0 is pointing into the stack for thread: 0xb7605800
+EBP=0x00000084 is an unknown value
+ESI=0x6ca65df4 is an oop
+[C 
+ - klass: {type array char}
+ - length: 6
+EDI=0x00000001 is an unknown value
+
+
+Stack: [0xb7709000,0xb775a000],  sp=0xb7758af0,  free space=318k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+J  com.android.dx.cf.code.Simulator$SimVisitor.visitLocal(IIIILcom/android/dx/rop/type/Type;I)V
+
+[error occurred during error reporting (printing native stack), id 0xb]
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0xb76c7400 JavaThread "Low Memory Detector" daemon [_thread_blocked, id=17215, stack(0x6b52e000,0x6b57f000)]
+  0xb76c5800 JavaThread "C2 CompilerThread1" daemon [_thread_in_native, id=17214, stack(0x6b57f000,0x6b600000)]
+  0xb76c3800 JavaThread "C2 CompilerThread0" daemon [_thread_in_vm, id=17213, stack(0x6b71c000,0x6b79d000)]
+  0xb76c2400 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=17212, stack(0x6bb2e000,0x6bb7f000)]
+  0xb76b2800 JavaThread "Finalizer" daemon [_thread_blocked, id=17211, stack(0x6be2e000,0x6be7f000)]
+  0xb76b1000 JavaThread "Reference Handler" daemon [_thread_blocked, id=17210, stack(0x6b79d000,0x6b7ee000)]
+=>0xb7605800 JavaThread "main" [_thread_in_Java, id=17204, stack(0xb7709000,0xb775a000)]
+
+Other Threads:
+  0xb76ad400 VMThread [stack: 0x6b7ee000,0x6b86f000] [id=17209]
+  0xb76c9400 WatcherThread [stack: 0x6b17f000,0x6b200000] [id=17216]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0xb7604398] CompiledIC_lock - owner thread: 0xb76c3800
+
+Heap
+ PSYoungGen      total 150720K, used 28713K [0x9eff0000, 0xaae70000, 0xb4540000)
+  eden space 128768K, 22% used [0x9eff0000,0xa0bfa7c0,0xa6db0000)
+  from space 21952K, 0% used [0xa6db0000,0xa6db0000,0xa8320000)
+  to   space 22976K, 0% used [0xa9800000,0xa9800000,0xaae70000)
+ PSOldGen        total 93440K, used 54207K [0x74540000, 0x7a080000, 0x9eff0000)
+  object space 93440K, 58% used [0x74540000,0x77a2fff8,0x7a080000)
+ PSPermGen       total 16384K, used 5304K [0x6c540000, 0x6d540000, 0x74540000)
+  object space 16384K, 32% used [0x6c540000,0x6ca6e3d8,0x6d540000)
+
+Code Cache  [0xb4600000, 0xb4878000, 0xb7600000)
+ total_blobs=744 nmethods=639 adapters=59 free_code_cache=47808960 largest_free_block=21184
+
+Dynamic libraries:
+00110000-0011b000 r-xp 00000000 fd:01 931119     /usr/lib/jvm/java-1.6.0-openjdk-1.6.0.0/jre/lib/i386/libverify.so
+0011b000-0011c000 rw-p 0000b000 fd:01 931119     /usr/lib/jvm/java-1.6.0-openjdk-1.6.0.0/jre/lib/i386/libverify.so
+0011c000-00142000 r-xp 00000000 fd:01 931100     /usr/lib/jvm/java-1.6.0-openjdk-1.6.0.0/jre/lib/i386/libjava.so
+00142000-00144000 rw-p 00026000 fd:01 931100     /usr/lib/jvm/java-1.6.0-openjdk-1.6.0.0/jre/lib/i386/libjava.so
+00144000-0014f000 r-xp 00000000 fd:01 1353       /lib/libnss_files-2.14.so
+0014f000-00150000 r--p 0000a000 fd:01 1353       /lib/libnss_files-2.14.so
+00150000-00151000 rw-p 0000b000 fd:01 1353       /lib/libnss_files-2.14.so
+00151000-00158000 r-xp 00000000 fd:01 931120     /usr/lib/jvm/java-1.6.0-openjdk-1.6.0.0/jre/lib/i386/libzip.so
+00158000-00159000 rw-p 00006000 fd:01 931120     /usr/lib/jvm/java-1.6.0-openjdk-1.6.0.0/jre/lib/i386/libzip.so
+00a25000-00a26000 r-xp 00000000 00:00 0          [vdso]
+00a26000-01245000 r-xp 00000000 fd:01 1048579    /usr/lib/jvm/java-1.6.0-openjdk-1.6.0.0/jre/lib/i386/server/libjvm.so
+01245000-01299000 rw-p 0081e000 fd:01 1048579    /usr/lib/jvm/java-1.6.0-openjdk-1.6.0.0/jre/lib/i386/server/libjvm.so
+01299000-016b3000 rw-p 00000000 00:00 0 
+08048000-08051000 r-xp 00000000 fd:01 666654     /usr/lib/jvm/java-1.6.0-openjdk-1.6.0.0/jre/bin/java
+08051000-08052000 rw-p 00008000 fd:01 666654     /usr/lib/jvm/java-1.6.0-openjdk-1.6.0.0/jre/bin/java
+09d48000-09d69000 rw-p 00000000 00:00 0          [heap]
+43047000-4306f000 r-xp 00000000 fd:01 1453       /lib/libm-2.14.so
+4306f000-43070000 r--p 00028000 fd:01 1453       /lib/libm-2.14.so
+43070000-43071000 rw-p 00029000 fd:01 1453       /lib/libm-2.14.so
+43241000-43323000 r-xp 00000000 fd:01 141890     /usr/lib/libstdc++.so.6.0.16
+43323000-43327000 r--p 000e1000 fd:01 141890     /usr/lib/libstdc++.so.6.0.16
+43327000-43329000 rw-p 000e5000 fd:01 141890     /usr/lib/libstdc++.so.6.0.16
+43329000-4332f000 rw-p 00000000 00:00 0 
+4ae5b000-4ae5f000 r-xp 00000000 fd:01 932017     /usr/lib/jvm/java-1.6.0-openjdk-1.6.0.0/jre/lib/i386/jli/libjli.so
+4ae5f000-4ae60000 rw-p 00003000 fd:01 932017     /usr/lib/jvm/java-1.6.0-openjdk-1.6.0.0/jre/lib/i386/jli/libjli.so
+4aeba000-4aed7000 r-xp 00000000 fd:01 1750       /lib/ld-2.14.so
+4aed7000-4aed8000 r--p 0001d000 fd:01 1750       /lib/ld-2.14.so
+4aed8000-4aed9000 rw-p 0001e000 fd:01 1750       /lib/ld-2.14.so
+4aedb000-4b060000 r-xp 00000000 fd:01 1817       /lib/libc-2.14.so
+4b060000-4b061000 ---p 00185000 fd:01 1817       /lib/libc-2.14.so
+4b061000-4b063000 r--p 00185000 fd:01 1817       /lib/libc-2.14.so
+4b063000-4b064000 rw-p 00187000 fd:01 1817       /lib/libc-2.14.so
+4b064000-4b067000 rw-p 00000000 00:00 0 
+4b069000-4b07f000 r-xp 00000000 fd:01 1877       /lib/libpthread-2.14.so
+4b07f000-4b080000 r--p 00015000 fd:01 1877       /lib/libpthread-2.14.so
+4b080000-4b081000 rw-p 00016000 fd:01 1877       /lib/libpthread-2.14.so
+4b081000-4b083000 rw-p 00000000 00:00 0 
+4b085000-4b088000 r-xp 00000000 fd:01 1818       /lib/libdl-2.14.so
+4b088000-4b089000 r--p 00002000 fd:01 1818       /lib/libdl-2.14.so
+4b089000-4b08a000 rw-p 00003000 fd:01 1818       /lib/libdl-2.14.so
+4b08c000-4b093000 r-xp 00000000 fd:01 1878       /lib/librt-2.14.so
+4b093000-4b094000 r--p 00006000 fd:01 1878       /lib/librt-2.14.so
+4b094000-4b095000 rw-p 00007000 fd:01 1878       /lib/librt-2.14.so
+4b0e4000-4b100000 r-xp 00000000 fd:01 1908       /lib/libgcc_s-4.6.1-20110908.so.1
+4b100000-4b101000 rw-p 0001b000 fd:01 1908       /lib/libgcc_s-4.6.1-20110908.so.1
+4b103000-4b118000 r-xp 00000000 fd:01 1906       /lib/libz.so.1.2.5
+4b118000-4b119000 rw-p 00014000 fd:01 1906       /lib/libz.so.1.2.5
+4da1a000-4da30000 r-xp 00000000 fd:01 1916       /lib/libnsl-2.14.so
+4da30000-4da31000 r--p 00016000 fd:01 1916       /lib/libnsl-2.14.so
+4da31000-4da32000 rw-p 00017000 fd:01 1916       /lib/libnsl-2.14.so
+4da32000-4da34000 rw-p 00000000 00:00 0 
+66800000-668fe000 rw-p 00000000 00:00 0 
+668fe000-66900000 ---p 00000000 00:00 0 
+66a00000-66afd000 rw-p 00000000 00:00 0 
+66afd000-66b00000 ---p 00000000 00:00 0 
+66b00000-66bfb000 rw-p 00000000 00:00 0 
+66bfb000-66c00000 ---p 00000000 00:00 0 
+66c00000-66cf0000 rw-p 00000000 00:00 0 
+66cf0000-66d00000 ---p 00000000 00:00 0 
+66d00000-66dfa000 rw-p 00000000 00:00 0 
+66dfa000-66e00000 ---p 00000000 00:00 0 
+66e00000-66efd000 rw-p 00000000 00:00 0 
+66efd000-66f00000 ---p 00000000 00:00 0 
+66f00000-66ff9000 rw-p 00000000 00:00 0 
+66ff9000-67000000 ---p 00000000 00:00 0 
+67000000-670ea000 rw-p 00000000 00:00 0 
+670ea000-67100000 ---p 00000000 00:00 0 
+67100000-671ff000 rw-p 00000000 00:00 0 
+671ff000-67200000 ---p 00000000 00:00 0 
+67200000-672fb000 rw-p 00000000 00:00 0 
+672fb000-67300000 ---p 00000000 00:00 0 
+67300000-673d9000 rw-p 00000000 00:00 0 
+673d9000-67400000 ---p 00000000 00:00 0 
+67400000-674f9000 rw-p 00000000 00:00 0 
+674f9000-67500000 ---p 00000000 00:00 0 
+67500000-675ff000 rw-p 00000000 00:00 0 
+675ff000-67600000 ---p 00000000 00:00 0 
+67600000-676e7000 rw-p 00000000 00:00 0 
+676e7000-67700000 ---p 00000000 00:00 0 
+67700000-677fd000 rw-p 00000000 00:00 0 
+677fd000-67800000 ---p 00000000 00:00 0 
+67800000-678fe000 rw-p 00000000 00:00 0 
+678fe000-67900000 ---p 00000000 00:00 0 
+67900000-67a00000 rw-p 00000000 00:00 0 
+67b00000-67bfe000 rw-p 00000000 00:00 0 
+67bfe000-67c00000 ---p 00000000 00:00 0 
+67c00000-67cff000 rw-p 00000000 00:00 0 
+67cff000-67d00000 ---p 00000000 00:00 0 
+67d00000-67df9000 rw-p 00000000 00:00 0 
+67df9000-67e00000 ---p 00000000 00:00 0 
+67e00000-67efb000 rw-p 00000000 00:00 0 
+67efb000-67f00000 ---p 00000000 00:00 0 
+67f00000-680fa000 rw-p 00000000 00:00 0 
+680fa000-68100000 ---p 00000000 00:00 0 
+68100000-68200000 rw-p 00000000 00:00 0 
+68200000-682ff000 rw-p 00000000 00:00 0 
+682ff000-68300000 ---p 00000000 00:00 0 
+68300000-683fa000 rw-p 00000000 00:00 0 
+683fa000-68400000 ---p 00000000 00:00 0 
+68400000-68500000 rw-p 00000000 00:00 0 
+68500000-68600000 rw-p 00000000 00:00 0 
+68600000-68700000 rw-p 00000000 00:00 0 
+68700000-687ff000 rw-p 00000000 00:00 0 
+687ff000-68800000 ---p 00000000 00:00 0 
+68800000-688fd000 rw-p 00000000 00:00 0 
+688fd000-68900000 ---p 00000000 00:00 0 
+68900000-689fd000 rw-p 00000000 00:00 0 
+689fd000-68a00000 ---p 00000000 00:00 0 
+68a00000-68afa000 rw-p 00000000 00:00 0 
+68afa000-68b00000 ---p 00000000 00:00 0 
+68b00000-68bf0000 rw-p 00000000 00:00 0 
+68bf0000-68c00000 ---p 00000000 00:00 0 
+68c00000-68cfd000 rw-p 00000000 00:00 0 
+68cfd000-68d00000 ---p 00000000 00:00 0 
+68d00000-68df9000 rw-p 00000000 00:00 0 
+68df9000-68e00000 ---p 00000000 00:00 0 
+68e00000-68efb000 rw-p 00000000 00:00 0 
+68efb000-68f00000 ---p 00000000 00:00 0 
+68f00000-68ff8000 rw-p 00000000 00:00 0 
+68ff8000-69000000 ---p 00000000 00:00 0 
+69000000-69100000 rw-p 00000000 00:00 0 
+69100000-691fe000 rw-p 00000000 00:00 0 
+691fe000-69200000 ---p 00000000 00:00 0 
+69200000-692fa000 rw-p 00000000 00:00 0 
+692fa000-69300000 ---p 00000000 00:00 0 
+69300000-693f9000 rw-p 00000000 00:00 0 
+693f9000-69400000 ---p 00000000 00:00 0 
+69400000-694fd000 rw-p 00000000 00:00 0 
+694fd000-69500000 ---p 00000000 00:00 0 
+69500000-695f7000 rw-p 00000000 00:00 0 
+695f7000-69600000 ---p 00000000 00:00 0 
+69600000-696fe000 rw-p 00000000 00:00 0 
+696fe000-69700000 ---p 00000000 00:00 0 
+69700000-697e8000 rw-p 00000000 00:00 0 
+697e8000-69800000 ---p 00000000 00:00 0 
+69800000-699f9000 rw-p 00000000 00:00 0 
+699f9000-69a00000 ---p 00000000 00:00 0 
+69a00000-69b00000 rw-p 00000000 00:00 0 
+69c00000-69dff000 rw-p 00000000 00:00 0 
+69dff000-69e00000 ---p 00000000 00:00 0 
+69e00000-69efd000 rw-p 00000000 00:00 0 
+69efd000-69f00000 ---p 00000000 00:00 0 
+69f00000-69ff5000 rw-p 00000000 00:00 0 
+69ff5000-6a000000 ---p 00000000 00:00 0 
+6a000000-6a0fc000 rw-p 00000000 00:00 0 
+6a0fc000-6a100000 ---p 00000000 00:00 0 
+6a100000-6a1f8000 rw-p 00000000 00:00 0 
+6a1f8000-6a200000 ---p 00000000 00:00 0 
+6a200000-6a2fe000 rw-p 00000000 00:00 0 
+6a2fe000-6a300000 ---p 00000000 00:00 0 
+6a300000-6a400000 rw-p 00000000 00:00 0 
+6a400000-6a4fd000 rw-p 00000000 00:00 0 
+6a4fd000-6a500000 ---p 00000000 00:00 0 
+6a500000-6a5fe000 rw-p 00000000 00:00 0 
+6a5fe000-6a600000 ---p 00000000 00:00 0 
+6a600000-6a6fa000 rw-p 00000000 00:00 0 
+6a6fa000-6a700000 ---p 00000000 00:00 0 
+6a700000-6a800000 rw-p 00000000 00:00 0 
+6a800000-6a8fa000 rw-p 00000000 00:00 0 
+6a8fa000-6a900000 ---p 00000000 00:00 0 
+6a900000-6aa00000 rw-p 00000000 00:00 0 
+6aa00000-6aae2000 rw-p 00000000 00:00 0 
+6aae2000-6ab00000 ---p 00000000 00:00 0 
+6ac00000-6acff000 rw-p 00000000 00:00 0 
+6acff000-6ad00000 ---p 00000000 00:00 0 
+6ad00000-6ae00000 rw-p 00000000 00:00 0 
+6ae00000-6aef3000 rw-p 00000000 00:00 0 
+6aef3000-6af00000 ---p 00000000 00:00 0 
+6b000000-6b0c2000 rw-p 00000000 00:00 0 
+6b0c2000-6b100000 ---p 00000000 00:00 0 
+6b17f000-6b180000 ---p 00000000 00:00 0 
+6b180000-6b200000 rw-p 00000000 00:00 0 
+6b200000-6b400000 r--p 00000000 fd:01 151052     /usr/lib/locale/locale-archive
+6b400000-6b421000 rw-p 00000000 00:00 0 
+6b421000-6b500000 ---p 00000000 00:00 0 
+6b52e000-6b531000 ---p 00000000 00:00 0 
+6b531000-6b57f000 rw-p 00000000 00:00 0 
+6b57f000-6b582000 ---p 00000000 00:00 0 
+6b582000-6b600000 rw-p 00000000 00:00 0 
+6b600000-6b6f0000 rw-p 00000000 00:00 0 
+6b6f0000-6b700000 ---p 00000000 00:00 0 
+6b71c000-6b71f000 ---p 00000000 00:00 0 
+6b71f000-6b79d000 rw-p 00000000 00:00 0 
+6b79d000-6b7a0000 ---p 00000000 00:00 0 
+6b7a0000-6b7ee000 rw-p 00000000 00:00 0 
+6b7ee000-6b7ef000 ---p 00000000 00:00 0 
+6b7ef000-6b86f000 rw-p 00000000 00:00 0 
+6b86f000-6ba00000 r--s 037b1000 fd:01 931134     /usr/lib/jvm/java-1.6.0-openjdk-1.6.0.0/jre/lib/rt.jar
+6ba00000-6bafd000 rw-p 00000000 00:00 0 
+6bafd000-6bb00000 ---p 00000000 00:00 0 
+6bb2e000-6bb31000 ---p 00000000 00:00 0 
+6bb31000-6bb7f000 rw-p 00000000 00:00 0 
+6bb7f000-6bb80000 ---p 00000000 00:00 0 
+6bb80000-6bc00000 rw-p 00000000 00:00 0 
+6bc00000-6bc21000 rw-p 00000000 00:00 0 
+6bc21000-6bd00000 ---p 00000000 00:00 0 
+6bd00000-6bd21000 rw-p 00000000 00:00 0 
+6bd21000-6be00000 ---p 00000000 00:00 0 
+6be2e000-6be31000 ---p 00000000 00:00 0 
+6be31000-6be7f000 rw-p 00000000 00:00 0 
+6be7f000-6be80000 ---p 00000000 00:00 0 
+6be80000-6bf00000 rw-p 00000000 00:00 0 
+6bf00000-6bf21000 rw-p 00000000 00:00 0 
+6bf21000-6c000000 ---p 00000000 00:00 0 
+6c00b000-6c01c000 r--s 000f3000 fd:02 1708465    /home/kaiquesilva/.titanium/mobilesdk/linux/1.7.5/android/titanium.jar
+6c01c000-6c025000 r--s 00065000 fd:01 931057     /usr/lib/jvm/java-1.6.0-openjdk-1.6.0.0/jre/lib/ext/gnome-java-bridge.jar
+6c025000-6c034000 r--s 000e3000 fd:02 1441925    /home/kaiquesilva/android-sdk-linux/platform-tools/lib/dx.jar
+6c034000-6c067000 rw-p 00000000 00:00 0 
+6c067000-6c068000 ---p 00000000 00:00 0 
+6c068000-6c0e8000 rw-p 00000000 00:00 0 
+6c0e8000-6c0e9000 ---p 00000000 00:00 0 
+6c0e9000-6c171000 rw-p 00000000 00:00 0 
+6c171000-6c1a9000 rw-p 00000000 00:00 0 
+6c1a9000-6c1d7000 rw-p 00000000 00:00 0 
+6c1d7000-6c2ff000 rw-p 00000000 00:00 0 
+6c2ff000-6c307000 rw-p 00000000 00:00 0 
+6c307000-6c33f000 rw-p 00000000 00:00 0 
+6c33f000-6c36d000 rw-p 00000000 00:00 0 
+6c36d000-6c494000 rw-p 00000000 00:00 0 
+6c494000-6c4f4000 rw-p 00000000 00:00 0 
+6c4f4000-6c53f000 rw-p 00000000 00:00 0 
+6c53f000-6d540000 rw-p 00000000 00:00 0 
+6d540000-74540000 rw-p 00000000 00:00 0 
+74540000-7a080000 rw-p 00000000 00:00 0 
+7a080000-9eff0000 rw-p 00000000 00:00 0 
+9eff0000-aae70000 rw-p 00000000 00:00 0 
+aae70000-b4540000 rw-p 00000000 00:00 0 
+b4540000-b454a000 rw-p 00000000 00:00 0 
+b454a000-b4600000 rw-p 00000000 00:00 0 
+b4600000-b4878000 rwxp 00000000 00:00 0 
+b4878000-b7700000 rw-p 00000000 00:00 0 
+b7709000-b770c000 ---p 00000000 00:00 0 
+b770c000-b775c000 rw-p 00000000 00:00 0 
+b7762000-b7765000 r--s 0007d000 fd:01 931124     /usr/lib/jvm/java-1.6.0-openjdk-1.6.0.0/jre/lib/jsse.jar
+b7765000-b7768000 r--s 0000f000 fd:01 931060     /usr/lib/jvm/java-1.6.0-openjdk-1.6.0.0/jre/lib/ext/pulse-java.jar
+b7768000-b7770000 rw-s 00000000 fd:01 404006     /tmp/hsperfdata_kaiquesilva/17191
+b7770000-b7771000 rw-p 00000000 00:00 0 
+b7771000-b7772000 r--p 00000000 00:00 0 
+b7772000-b7773000 rw-p 00000000 00:00 0 
+bfeae000-bfee4000 rw-p 00000000 00:00 0          [stack]
+
+VM Arguments:
+jvm_args: -Xmx1024M -XX:-UseGCOverheadLimit 
+java_command: /home/kaiquesilva/android-sdk-linux/platform-tools/lib/dx.jar --dex --output=/home/kaiquesilva/Documents/Projects/dataSync/build/android/bin/classes.dex /home/kaiquesilva/Documents/Projects/dataSync/build/android/bin/classes /home/kaiquesilva/.titanium/mobilesdk/linux/1.7.5/android/modules/titanium-filesystem.jar /home/kaiquesilva/.titanium/mobilesdk/linux/1.7.5/android/modules/titanium-app.jar /home/kaiquesilva/.titanium/mobilesdk/linux/1.7.5/android/modules/titanium-ui.jar /home/kaiquesilva/.titanium/mobilesdk/linux/1.7.5/android/modules/titanium-json.jar /home/kaiquesilva/.titanium/mobilesdk/linux/1.7.5/android/jaxen-1.1.1.jar /home/kaiquesilva/.titanium/mobilesdk/linux/1.7.5/android/titanium.jar /home/kaiquesilva/.titanium/mobilesdk/linux/1.7.5/android/modules/titanium-android.jar /home/kaiquesilva/.titanium/mobilesdk/linux/1.7.5/android/modules/titanium-media.jar /home/kaiquesilva/.titanium/mobilesdk/linux/1.7.5/android/modules/titanium-locale.jar /home/kaiquesilva/.titanium/mobilesdk/linux/1.7.5/android/modules/titanium-database.jar /home/kaiquesilva/.titanium/mobilesdk/linux/1.7.5/android/ti-commons-codec-1.3.jar /home/kaiquesilva/.titanium/mobilesdk/linux/1.7.5/android/modules/titanium-api.jar /home/kaiquesilva/.titanium/mobilesdk/linux/1.7.5/android/modules/titanium-analytics.jar /home/kaiquesilva/.titanium/mobilesdk/linux/1.7.5/android/lib/titanium-verify.jar /home/kaiquesilva/.titanium/mobilesdk/linux/1.7.5/android/lib/titanium-debug.jar /home/kaiquesilva/.titanium/mobilesdk/linux/1.7.5/android/modules/titanium-network.jar /home/kaiquesilva/.titanium/mobilesdk/linux/1.7.5/android/js-debug.jar
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=/usr/lib/jvm/java-1.6.0-openjdk/bin/
+PATH=/usr/lib/qt-3.3/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/home/kaiquesilva/android-sdk-linux/tools:/home/kaiquesilva/android-sdk-linux/tools
+USERNAME=kaiquesilva
+LD_LIBRARY_PATH=/usr/lib/jvm/java-1.6.0-openjdk-1.6.0.0/jre/lib/i386/server:/usr/lib/jvm/java-1.6.0-openjdk-1.6.0.0/jre/lib/i386:/usr/lib/jvm/java-1.6.0-openjdk-1.6.0.0/jre/../lib/i386
+SHELL=/bin/bash
+DISPLAY=:0
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0x66b0c0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGBUS: [libjvm.so+0x66b0c0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGFPE: [libjvm.so+0x52f440], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGPIPE: [libjvm.so+0x52f440], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGXFSZ: [libjvm.so+0x52f440], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGILL: [libjvm.so+0x52f440], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGUSR1: SIG_DFL, sa_mask[0]=0x00000000, sa_flags=0x00000000
+SIGUSR2: [libjvm.so+0x52f2d0], sa_mask[0]=0x00000000, sa_flags=0x10000004
+SIGHUP: [libjvm.so+0x532140], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGINT: [libjvm.so+0x532140], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGTERM: [libjvm.so+0x532140], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGQUIT: [libjvm.so+0x532140], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+
+
+---------------  S Y S T E M  ---------------
+
+OS:Fedora release 15 (Lovelock)
+
+uname:Linux 2.6.40.6-0.fc15.i686 #1 SMP Tue Oct 4 00:51:19 UTC 2011 i686
+libc:glibc 2.14 NPTL 2.14 
+rlimit: STACK 8192k, CORE 0k, NPROC 1024, NOFILE 4096, AS infinity
+load average:1.30 0.89 0.70
+
+/proc/meminfo:
+MemTotal:        2831504 kB
+MemFree:          646248 kB
+Buffers:            9108 kB
+Cached:           432744 kB
+SwapCached:        84264 kB
+Active:          1234308 kB
+Inactive:         812284 kB
+Active(anon):    1105052 kB
+Inactive(anon):   694644 kB
+Active(file):     129256 kB
+Inactive(file):   117640 kB
+Unevictable:          16 kB
+Mlocked:              16 kB
+HighTotal:       1973412 kB
+HighFree:         221456 kB
+LowTotal:         858092 kB
+LowFree:          424792 kB
+SwapTotal:       4915196 kB
+SwapFree:        4471568 kB
+Dirty:              7996 kB
+Writeback:             0 kB
+AnonPages:       1533948 kB
+Mapped:            95904 kB
+Shmem:            194956 kB
+Slab:              64916 kB
+SReclaimable:      28248 kB
+SUnreclaim:        36668 kB
+KernelStack:        3704 kB
+PageTables:        17504 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     6330948 kB
+Committed_AS:    5560912 kB
+VmallocTotal:     122880 kB
+VmallocUsed:       36668 kB
+VmallocChunk:      44652 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:    593920 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       4096 kB
+DirectMap4k:       20472 kB
+DirectMap4M:      880640 kB
+
+
+CPU:total 4 (2 cores per cpu, 2 threads per core) family 6 model 37 stepping 5, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, ht
+
+Memory: 4k page, physical 2831504k(646248k free), swap 4915196k(4471568k free)
+
+vm_info: OpenJDK Server VM (20.0-b11) for linux-x86 JRE (1.6.0_22-b22), built on Oct 19 2011 06:35:36 by "mockbuild" with gcc 4.6.1 20110908 (Red Hat 4.6.1-9)
+
+time: Fri Nov 25 12:28:54 2011
+elapsed time: 7 seconds
+
